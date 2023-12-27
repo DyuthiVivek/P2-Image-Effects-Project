@@ -10,18 +10,17 @@ public class FlipEffect implements DiscreteEffect{
     private int horizontalFlipValue = 0, verticalFlipValue = 0;
 
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService){
-            return FlipInterface.applyFlip(image, horizontalFlipValue, verticalFlipValue);
-        }
+        return FlipInterface.applyFlip(image, horizontalFlipValue, verticalFlipValue);
+    }
 
     public void selectOptionValue(String optionName, int value) throws IllegalParameterException {
-            if (optionName.equals("Horizontal")) {
-                horizontalFlipValue = value;
-            } else if (optionName.equals("Vertical")) {
-                verticalFlipValue = value;
-            } else {
-                throw new IllegalParameterException();
-            }
+        if (optionName.equals("Horizontal")) {
+            horizontalFlipValue = value;
+        } else if (optionName.equals("Vertical")) {
+            verticalFlipValue = value;
+        } else {
+            throw new IllegalParameterException();
         }
-
+    }
 
 }
