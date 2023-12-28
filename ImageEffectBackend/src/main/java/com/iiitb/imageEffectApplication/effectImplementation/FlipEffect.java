@@ -10,6 +10,7 @@ public class FlipEffect implements DiscreteEffect{
     private int horizontalFlipValue = 0, verticalFlipValue = 0;
 
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService){
+        loggingService.addLog(fileName, "Flip", "HorizontalFlip: " + Integer.toString(horizontalFlipValue) + " VerticalFlip: " + Integer.toString(verticalFlipValue));
         return FlipInterface.applyFlip(image, horizontalFlipValue, verticalFlipValue);
     }
 
