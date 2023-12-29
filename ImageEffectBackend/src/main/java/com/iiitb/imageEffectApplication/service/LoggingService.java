@@ -2,6 +2,8 @@ package com.iiitb.imageEffectApplication.service;
 import java.io.*;
 import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +15,7 @@ import com.iiitb.imageEffectApplication.model.LogModel;
 public class LoggingService {
 
     public void addLog(String fileName, String effectName, String optionValues) {
-        String timeStamp = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new java.util.Date());
+        String timeStamp = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a").format(new java.util.Date());
         System.out.println(timeStamp);
         LogModel logModel = new LogModel(timeStamp, fileName, effectName, optionValues);
         List <LogModel> listOfLogs = getAllLogs();
@@ -62,31 +64,15 @@ public class LoggingService {
     }
 
     public List<LogModel> getLogsByEffect(String effectName) {
-        ArrayList <LogModel> listOfLogs = new ArrayList<>();
-        File file = new File("/home/dyuthi/prog2/P2-Image-Effects-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/service/logs");
-
-        try {
-            FileInputStream fstream = new FileInputStream(file);
-            ObjectInputStream ostream = new ObjectInputStream(fstream);
-            while (true) {
-                Object obj;
-                try {
-                    obj = ostream.readObject();
-                } catch (EOFException e) {
-                    break;
-                }
-
-                if(((LogModel)obj).getEffectName().equals(effectName))
-                    listOfLogs.add((LogModel)obj);
+        List <LogModel> listOfLogs = getAllLogs();
+        ArrayList <LogModel> newList = new ArrayList<>();
+        for(LogModel log: listOfLogs){
+            if(log.getEffectName().equals(effectName)){
+                newList.add(log);
             }
-            ostream.close();
-            fstream.close();
         }
-        catch(Exception e){
-            e.printStackTrace();
-        }        
-        return listOfLogs;
 
+        return newList;
     }
 
     public void clearLogs() {
@@ -102,7 +88,19 @@ public class LoggingService {
     }
 
     public List<LogModel> getLogsBetweenTimestamps(LocalDateTime startTime, LocalDateTime endTime) {
-        System.out.println(startTime);
-        return new ArrayList<LogModel>();
+        List <LogModel>listOfLogs = getAllLogs();
+        ArrayList <LogModel> newList = new ArrayList<>();
+        for(LogModel log: listOfLogs){
+            DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                .parseCaseInsensitive()
+                .appendPattern("yyyy-MM-dd hh:mm:ss a")
+                .toFormatter();
+            LocalDateTime dateTime = LocalDateTime.parse(log.getTimestamp(), formatter);
+            if (dateTime.isAfter(startTime) && dateTime.isBefore(endTime)) {
+                newList.add(log);
+            }
+
+        }
+        return newList;
     }
 }

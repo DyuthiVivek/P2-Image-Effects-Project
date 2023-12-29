@@ -10,6 +10,7 @@ public class SharpenEffect implements ParameterizableEffect{
     private float sharpenAmount;
     
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService){
+        loggingService.addLog(fileName, "Sharpen", Float.toString(sharpenAmount));
         return SharpenInterface.applySharpen(image, sharpenAmount);
     }
 
