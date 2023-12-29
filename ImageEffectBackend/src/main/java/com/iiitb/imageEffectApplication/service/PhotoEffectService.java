@@ -186,9 +186,9 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-	    InvertEffect effect = new InvertEffect();
-            Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
-
+	    //InvertEffect effect = new InvertEffect();
+        //            Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
+            Pixel[][] modifiedImage = inputImage;
             // ACTUAL WORK ENDS HERE
 
             return processingUtils.postProcessing(modifiedImage);
