@@ -2,6 +2,7 @@ package com.iiitb.imageEffectApplication.service;
 
 import com.iiitb.imageEffectApplication.effectImplementation.ContrastEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.FlipEffect;
+import com.iiitb.imageEffectApplication.effectImplementation.GaussianBlurEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.GrayscaleEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.InvertEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.SharpenEffect;
@@ -142,7 +143,9 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            GaussianBlurEffect effect = new GaussianBlurEffect();
+            effect.setParameterValue(radius);
+            Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -151,6 +154,9 @@ public class PhotoEffectService {
             return processingUtils.postProcessing(modifiedImage);
 
         } catch (IOException e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        } catch (Exception e){
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
