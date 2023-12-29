@@ -4,7 +4,7 @@
 
 using namespace std;
 
-void invertImage (vector <vector<Pixel>>& image){
+void InvertImage (vector<vector<Pixel>>& image){
     int height = image.size();
     int width = image[0].size();
     //accessing each pixel in the image
