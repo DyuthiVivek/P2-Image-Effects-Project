@@ -3,6 +3,7 @@ package com.iiitb.imageEffectApplication.service;
 import com.iiitb.imageEffectApplication.effectImplementation.ContrastEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.FlipEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.GrayscaleEffect;
+import com.iiitb.imageEffectApplication.effectImplementation.InvertEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.SharpenEffect;
 import com.iiitb.imageEffectApplication.libraryInterfaces.Pixel;
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
@@ -186,9 +187,8 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-	    //InvertEffect effect = new InvertEffect();
-        //            Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
-            Pixel[][] modifiedImage = inputImage;
+            InvertEffect effect = new InvertEffect();
+            Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
             // ACTUAL WORK ENDS HERE
 
             return processingUtils.postProcessing(modifiedImage);
