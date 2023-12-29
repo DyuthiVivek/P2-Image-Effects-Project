@@ -1,6 +1,7 @@
 package com.iiitb.imageEffectApplication.service;
 
 import com.iiitb.imageEffectApplication.effectImplementation.FlipEffect;
+import com.iiitb.imageEffectApplication.effectImplementation.GrayscaleEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.SharpenEffect;
 import com.iiitb.imageEffectApplication.libraryInterfaces.Pixel;
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
@@ -157,7 +158,9 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            GrayscaleEffect effect = new GrayscaleEffect();
+            Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
+
 
             // ACTUAL WORK ENDS HERE
 

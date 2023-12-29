@@ -16,7 +16,6 @@ public class LoggingService {
 
     public void addLog(String fileName, String effectName, String optionValues) {
         String timeStamp = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a").format(new java.util.Date());
-        System.out.println(timeStamp);
         LogModel logModel = new LogModel(timeStamp, fileName, effectName, optionValues);
         List <LogModel> listOfLogs = getAllLogs();
         File file = new File("/home/dyuthi/prog2/P2-Image-Effects-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/service/logs");
