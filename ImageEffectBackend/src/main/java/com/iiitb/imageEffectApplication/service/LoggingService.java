@@ -13,7 +13,7 @@ import com.iiitb.imageEffectApplication.model.LogModel;
 public class LoggingService {
 
     public void addLog(String fileName, String effectName, String optionValues) {
-        String timeStamp = new SimpleDateFormat("dd MM yyyy hh:mm").format(new java.util.Date());
+        String timeStamp = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new java.util.Date());
         System.out.println(timeStamp);
         LogModel logModel = new LogModel(timeStamp, fileName, effectName, optionValues);
         List <LogModel> listOfLogs = getAllLogs();
@@ -102,6 +102,7 @@ public class LoggingService {
     }
 
     public List<LogModel> getLogsBetweenTimestamps(LocalDateTime startTime, LocalDateTime endTime) {
+        System.out.println(startTime);
         return new ArrayList<LogModel>();
     }
 }
