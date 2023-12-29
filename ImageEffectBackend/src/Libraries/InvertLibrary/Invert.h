@@ -3,5 +3,5 @@
 #include "../Pixel.h"
 #include <vector>
 using namespace std;
-void invertImage (vector <vector<Pixel>>& image);
+void InvertImage(vector<vector<Pixel>>& image);
 #endif
