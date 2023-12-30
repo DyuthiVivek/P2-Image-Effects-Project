@@ -18,7 +18,6 @@ public class ContrastEffect implements SingleValueParameterizableEffect{
         if(parameterValue != (float)parameterValue)
             throw new IllegalParameterException();
         constrastAmount = parameterValue;
-        System.out.println(constrastAmount+"lalalla");
     }
 
 }

@@ -5,6 +5,10 @@
 using namespace std;
 // Gaussian blur function
 void applyGaussianBlur(vector<vector<Pixel>>& image, float radius) {
+    radius = radius/2.5;
+    if(radius<0.5){
+        radius = 0.5;
+    }
     int size = 2 * static_cast<int>(radius) + 1;
     float sigma = radius / 3.0f;
     vector<vector<float>> kernel(size, vector<float>(size));

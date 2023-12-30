@@ -61,6 +61,8 @@ using namespace std;
 // Function to sharpen the image using a modified Laplacian filter
 void sharpenImage(std::vector<std::vector<Pixel>>& image, float sharpenAmount) {
     // Define a modified Laplacian filter kernel for sharpening
+            sharpenAmount = ((sharpenAmount*2)+100)/100;
+
     std::vector<std::vector<float>> kernel = {
         {-1, -1, -1},
         {-1, 9 + sharpenAmount, -1},

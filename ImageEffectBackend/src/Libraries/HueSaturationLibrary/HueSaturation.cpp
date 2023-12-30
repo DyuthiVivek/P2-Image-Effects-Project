@@ -133,6 +133,8 @@ void hsvToRgb(double h, double s, double v, int& r, int& g, int& b) {
 }
 
 void HueEffect(vector<vector<Pixel>>& image, float HueOffset, float SatOffset){
+    HueOffset = (HueOffset*2)-100;
+    SatOffset = (SatOffset/100);
     int height = image.size();
     int width = image[0].size();
     //accessing each pixel in the image
