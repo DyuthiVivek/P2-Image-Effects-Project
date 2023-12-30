@@ -56,11 +56,17 @@ JNIEXPORT jobjectArray JNICALL Java_com_iiitb_imageEffectApplication_libraryInte
     // Call the function here
     // TODO
 
+    if (value == 90) {
+        rotate90(imageVector);
+    }
 
+    else if (value == 180) {
+        rotate180(imageVector);
+    }
 
-
-
-
+    else if (value == 270) {
+        rotate270(imageVector);
+    }
 
 
     int nrows = imageVector.size();
