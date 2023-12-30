@@ -9,6 +9,9 @@ import com.iiitb.imageEffectApplication.effectImplementation.SharpenEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.RotationEffect;
 import com.iiitb.imageEffectApplication.libraryInterfaces.Pixel;
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
+
+import main.java.com.iiitb.imageEffectApplication.effectImplementation.HueSaturationEffect;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +37,9 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            HueSaturationEffect effect = new HueSaturationEffect();
+            effect.setParameter("hueAmount", "saturationAmount", hueAmount, saturationAmount);
+            Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
