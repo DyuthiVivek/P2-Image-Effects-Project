@@ -1,7 +1,6 @@
 package com.iiitb.imageEffectApplication.effectImplementation;
 
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
-import com.iiitb.imageEffectApplication.libraryInterfaces.FlipInterface;
 import com.iiitb.imageEffectApplication.libraryInterfaces.Pixel;
 import com.iiitb.imageEffectApplication.libraryInterfaces.RotationInterface;
 import com.iiitb.imageEffectApplication.service.LoggingService;
@@ -16,16 +15,18 @@ public class RotationEffect implements DiscreteEffect {
     }
 
     public void selectOptionValue(String optionName, int value) throws IllegalParameterException {
-        if (optionName.equals("90°") && value == 1) {
+        if (value == 1) {
             degrees = 90;
+
         }
 
-        else if (optionName.equals("180°") && value == 1) {
+        else if (value == 2) {
             degrees = 180;
         } 
 
-        else if (optionName.equals("270°") && value == 1) {
+        else if (value == 3) {
             degrees = 270;
+
         }
         
         else {

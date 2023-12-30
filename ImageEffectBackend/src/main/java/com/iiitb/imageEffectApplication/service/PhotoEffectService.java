@@ -6,11 +6,12 @@ import com.iiitb.imageEffectApplication.effectImplementation.GaussianBlurEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.GrayscaleEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.InvertEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.SharpenEffect;
+import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 import com.iiitb.imageEffectApplication.effectImplementation.RotationEffect;
 import com.iiitb.imageEffectApplication.libraryInterfaces.Pixel;
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
 
-import main.java.com.iiitb.imageEffectApplication.effectImplementation.HueSaturationEffect;
+import com.iiitb.imageEffectApplication.effectImplementation.HueSaturationEffect;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,7 +29,7 @@ public class PhotoEffectService {
     @Autowired
     private LoggingService loggingService;
 
-    public ResponseEntity<byte[]> applyHueSaturationEffect(float hueAmount, float saturationAmount, MultipartFile imageFile) {
+    public ResponseEntity<byte[]> applyHueSaturationEffect(float hueAmount, float saturationAmount, MultipartFile imageFile) throws IllegalParameterException {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
@@ -38,9 +39,9 @@ public class PhotoEffectService {
 
             // TODO
             HueSaturationEffect effect = new HueSaturationEffect();
-            effect.setParameter("hueAmount", "saturationAmount", hueAmount, saturationAmount);
+            effect.setParameter("hueAmount",hueAmount);
+            effect.setParameter("saturationAmount",saturationAmount);
             Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
-
             // ACTUAL WORK ENDS HERE
 
 
@@ -48,6 +49,10 @@ public class PhotoEffectService {
 
         } catch (IOException e) {
             e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        catch(Exception e){
+             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

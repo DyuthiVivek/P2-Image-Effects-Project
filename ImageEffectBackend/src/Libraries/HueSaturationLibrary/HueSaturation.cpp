@@ -8,8 +8,8 @@ void HueSaturation(vector<vector<Pixel>>& image, float HueOffset, float SatOffse
     //accessing each pixel in the image
     for (int i = 0; i < height; i ++){
         for (int j = 0; j < width; j ++){
-            image[i][j].b = (image[i][j].b + HueOffset) % 180;   //adjusting the hue
-            image[i][j].g = min(255, static_cast<int>(image[i][j].g) + SatOffset);   //adjusting the saturation
+            image[i][j].b = (static_cast<int>(image[i][j].b + HueOffset) % 180);   //adjusting the hue
+            image[i][j].g = min(255, static_cast<int>(image[i][j].g + SatOffset));   //adjusting the saturation
         }
     }
 }

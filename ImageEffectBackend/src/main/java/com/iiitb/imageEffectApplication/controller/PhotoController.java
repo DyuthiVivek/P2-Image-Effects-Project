@@ -1,5 +1,6 @@
 package com.iiitb.imageEffectApplication.controller;
 
+import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 import com.iiitb.imageEffectApplication.service.PhotoEffectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class PhotoController {
             @RequestParam("hueAmount") float hueAmount,
             @RequestParam("saturationAmount") float saturationAmount,
             @RequestParam("imageFile") MultipartFile imageFile
-    ) {
+    ) throws IllegalParameterException {
         return photoEffectService.applyHueSaturationEffect(hueAmount, saturationAmount, imageFile);
     }
 

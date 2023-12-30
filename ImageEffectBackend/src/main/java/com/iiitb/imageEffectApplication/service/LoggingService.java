@@ -18,7 +18,7 @@ public class LoggingService {
         String timeStamp = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss a").format(new java.util.Date());
         LogModel logModel = new LogModel(timeStamp, fileName, effectName, optionValues);
         List <LogModel> listOfLogs = getAllLogs();
-        File file = new File("/home/dyuthi/prog2/P2-Image-Effects-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/service/logs");
+        File file = new File("/home/iiitb/lab2/P2-Image-Effects-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/service/logs");
         
         try (FileOutputStream fos = new FileOutputStream(file)) {
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -35,7 +35,7 @@ public class LoggingService {
 
     public List<LogModel> getAllLogs() {
         ArrayList <LogModel> listOfLogs = new ArrayList<>();
-        File file = new File("/home/dyuthi/prog2/P2-Image-Effects-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/service/logs");
+        File file = new File("/home/iiitb/lab2/P2-Image-Effects-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/service/logs");
 
         try {
             FileInputStream fstream = new FileInputStream(file);
@@ -75,7 +75,7 @@ public class LoggingService {
     }
 
     public void clearLogs() {
-        File file = new File("/home/dyuthi/prog2/P2-Image-Effects-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/service/logs");
+        File file = new File("/home/iiitb/lab2/P2-Image-Effects-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/service/logs");
         try{
             PrintWriter writer = new PrintWriter(file);
             writer.print("");
