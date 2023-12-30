@@ -25,7 +25,7 @@ void rgbToHsv(unsigned char r, unsigned char g, unsigned char b, double& h, doub
     v = maxVal;
 }
 
-void hsvToRgb(double h, double s, double v, unsigned char& r, unsigned char& g, unsigned char& b) {
+void hsvToRgb(double h, double s, double v, unsigned char r, unsigned char g, unsigned char b) {
     double c = v * s;
     double x = c * (1 - std::abs(fmod(h / 60.0, 2) - 1));
     double m = v - c;
