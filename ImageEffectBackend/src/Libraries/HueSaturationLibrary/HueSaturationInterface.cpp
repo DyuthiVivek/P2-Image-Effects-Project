@@ -56,8 +56,8 @@ JNIEXPORT jobjectArray JNICALL Java_com_iiitb_imageEffectApplication_libraryInte
     // Call the function here
     // TODO
 
-    HueEffect(imageVector, hueValue);
-    SaturationEffect(imageVector, saturationValue);
+    HueEffect(imageVector, hueValue, saturationValue);
+    //SaturationEffect(imageVector, saturationValue);
 
 
 

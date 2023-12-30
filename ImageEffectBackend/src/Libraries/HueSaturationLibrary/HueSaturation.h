@@ -3,6 +3,6 @@
 #include "../Pixel.h"
 #include <bits/stdc++.h>
 using namespace std;
-void HueEffect(vector<vector<Pixel>>& image, float HueOffset);
-void SaturationEffect(vector<vector<Pixel>>& image, float SatOffset);
+void HueEffect(vector<vector<Pixel>>& image, float HueOffset, float SatOffset);
+//void SaturationEffect(vector<vector<Pixel>>& image, float SatOffset);
 #endif
