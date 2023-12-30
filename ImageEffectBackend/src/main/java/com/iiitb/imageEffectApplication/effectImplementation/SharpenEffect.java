@@ -11,7 +11,7 @@ public class SharpenEffect implements ParameterizableEffect{
     
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService){
         loggingService.addLog(fileName, "Sharpen", Float.toString(sharpenAmount));
-        return SharpenInterface.applyHueSaturation(image, sharpenAmount);
+        return SharpenInterface.applySharpen(image, sharpenAmount);
     }
 
     public void setParameter(String paramName, float value) throws IllegalParameterException{
