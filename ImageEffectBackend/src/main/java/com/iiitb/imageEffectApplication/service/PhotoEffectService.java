@@ -1,6 +1,7 @@
 package com.iiitb.imageEffectApplication.service;
 
 import com.iiitb.imageEffectApplication.effectImplementation.ContrastEffect;
+import com.iiitb.imageEffectApplication.effectImplementation.DominantColorEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.FlipEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.GaussianBlurEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.GrayscaleEffect;
@@ -306,13 +307,20 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            DominantColorEffect effect = new DominantColorEffect();
+            effect.setParameterValue(1);
+            Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
             return processingUtils.postProcessing(modifiedImage);
 
         } catch (IOException e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+        catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

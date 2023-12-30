@@ -17,7 +17,6 @@ public class RotationEffect implements DiscreteEffect {
     public void selectOptionValue(String optionName, int value) throws IllegalParameterException {
         if (value == 1) {
             degrees = 90;
-
         }
 
         else if (value == 2) {
@@ -26,7 +25,6 @@ public class RotationEffect implements DiscreteEffect {
 
         else if (value == 3) {
             degrees = 270;
-
         }
         
         else {
