@@ -38,7 +38,8 @@ public class PhotoEffectService {
 
             // TODO
             HueSaturationEffect effect = new HueSaturationEffect();
-            effect.setParameter("hueAmount", "saturationAmount", hueAmount, saturationAmount);
+            effect.setParameter("hueOffset", hueAmount);
+            effect.setParameter("saturationOffset", saturationAmount);
             Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
