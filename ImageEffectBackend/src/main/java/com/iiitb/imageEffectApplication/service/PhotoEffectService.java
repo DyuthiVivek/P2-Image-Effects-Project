@@ -6,6 +6,7 @@ import com.iiitb.imageEffectApplication.effectImplementation.GaussianBlurEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.GrayscaleEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.InvertEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.SharpenEffect;
+import com.iiitb.imageEffectApplication.effectImplementation.RotationEffect;
 import com.iiitb.imageEffectApplication.libraryInterfaces.Pixel;
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -214,7 +215,13 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+
+            RotationEffect effect = new RotationEffect();
+            effect.selectOptionValue("0°", value);
+            effect.selectOptionValue("90°", value);
+            effect.selectOptionValue("180°", value);
+            effect.selectOptionValue("270°", value);
+            Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -222,6 +229,11 @@ public class PhotoEffectService {
             return processingUtils.postProcessing(modifiedImage);
 
         } catch (IOException e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        } 
+        
+        catch (Exception e){
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
