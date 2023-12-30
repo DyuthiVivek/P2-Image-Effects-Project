@@ -1,4 +1,4 @@
-package com.iiitb.imageEffectApplication.effectImplementation;
+package main.java.com.iiitb.imageEffectApplication.effectImplementation;
 import com.iiitb.imageEffectApplication.baseEffects.ParameterizableEffect;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 
