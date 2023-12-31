@@ -141,12 +141,15 @@ void HueEffect(vector<vector<Pixel>>& image, float HueOffset, float SatOffset){
     for (int i = 0; i < height; i ++){
         for (int j = 0; j < width; j ++){
              double h, s, v;
-            rgbToHsv(image[i][j].r, image[i][j].g, image[i][j].b, h, s, v);   // Adjust the hue
+             rgbToHsv(image[i][j].r, image[i][j].g, image[i][j].b, h, s, v); 
+        
+              
+             // Adjust the hue
             //h = fmod((h + HueOffset + 360), 360);
             h += HueOffset;
             s *= SatOffset;
             hsvToRgb(h, s, v, image[i][j].r, image[i][j].g, image[i][j].b);
-        }
+        }   
     }
 }
 
