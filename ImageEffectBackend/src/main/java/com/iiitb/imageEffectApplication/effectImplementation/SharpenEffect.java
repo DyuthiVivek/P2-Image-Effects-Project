@@ -18,6 +18,6 @@ public class SharpenEffect implements ParameterizableEffect{
         if(value != (float)value)
             throw new IllegalParameterException();
         sharpenAmount = value;
-        System.out.println(value+"gugugaga");
+        
     }
 }

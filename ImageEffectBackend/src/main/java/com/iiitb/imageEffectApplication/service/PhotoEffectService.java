@@ -1,5 +1,5 @@
 package com.iiitb.imageEffectApplication.service;
-
+import com.iiitb.imageEffectApplication.effectImplementation.BrightnessEffect;     
 import com.iiitb.imageEffectApplication.effectImplementation.ContrastEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.DominantColorEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.FlipEffect;
@@ -9,6 +9,7 @@ import com.iiitb.imageEffectApplication.effectImplementation.InvertEffect;
 import com.iiitb.imageEffectApplication.effectImplementation.SharpenEffect;
 import com.iiitb.imageEffectApplication.exception.IllegalParameterException;
 import com.iiitb.imageEffectApplication.effectImplementation.RotationEffect;
+import com.iiitb.imageEffectApplication.effectImplementation.SepiaEffect;
 import com.iiitb.imageEffectApplication.libraryInterfaces.Pixel;
 import com.iiitb.imageEffectApplication.utils.ProcessingUtils;
 
@@ -58,7 +59,7 @@ public class PhotoEffectService {
         }
     }
 
-    public ResponseEntity<byte[]> applyBrightnessEffect(float amount, MultipartFile imageFile) {
+    public ResponseEntity<byte[]> applyBrightnessEffect(float amount, MultipartFile imageFile)  {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
@@ -69,7 +70,9 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            BrightnessEffect effect = new BrightnessEffect();
+            effect.setParameterValue(amount);
+            Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService);// Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
@@ -78,6 +81,10 @@ public class PhotoEffectService {
             return processingUtils.postProcessing(modifiedImage);
 
         } catch (IOException e) {
+            e.printStackTrace();
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        catch (Exception e) {
             e.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
@@ -258,7 +265,8 @@ public class PhotoEffectService {
             // ACTUAL WORK STARTS HERE
 
             // TODO
-            Pixel[][] modifiedImage = inputImage; // Replace this with actual modified image
+            SepiaEffect effect = new SepiaEffect();
+            Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
 
