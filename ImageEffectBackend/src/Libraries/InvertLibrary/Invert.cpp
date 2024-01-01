@@ -10,7 +10,7 @@ void InvertImage (vector<vector<Pixel>>& image){
     //accessing each pixel in the image
     for (int i = 0; i < height; i ++){
         for (int j = 0; j < width; j ++){
-            image[i][j].r = 255 - image[i][j].r;
+            image[i][j].r = 255 - image[i][j].r;  //changing the r, g, b values
             image[i][j].g = 255 - image[i][j].g;
             image[i][j].b = 255 - image[i][j].b;
         }

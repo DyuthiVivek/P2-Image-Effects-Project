@@ -4,10 +4,11 @@
 #include <valarray>
 #include <iostream>
 using namespace std;
+//function to apply contrast
 void ApplyingContrast(vector<vector<Pixel>>& imageVector, float amount){
     amount = (amount/100);
-    for (size_t i = 0; i < imageVector.size(); ++i) {
-        for (size_t j = 0; j < imageVector[i].size(); ++j) {
+    for (size_t i = 0; i < imageVector.size(); ++i) {   //iterating through each row
+        for (size_t j = 0; j < imageVector[i].size(); ++j) {    //iterating through each pixel
             Pixel &pixel = imageVector[i][j];
 
             // Applying contrast adjustment formula to each color channel (r, g, b)
