@@ -186,7 +186,7 @@ The following effects were implemented:
 
 ## Logging Service
 
-The code uses file handling to read and write `LogModel` objects to a binary file, `logs`.
+We are maintaining logs using file handling to read and write `LogModel` objects to a binary file, `logs`.
 
 1. `addLog` Function:
 
