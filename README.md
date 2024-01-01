@@ -32,6 +32,9 @@ The following effects were implemented:
 
 ## Flow
 
+Frontend - User interacts with the frontend layer through a browser, which runs JavaScript code written using Angular framework.
+Backend - Node.js talks to Java services implemented using the Spring Boot microservice framework. The source code for image effects is written in C++. The Java services layer talks to the C++ libraries using JNI. 
+
 ## Directory Structure of Backend
 1. Libraries (cpp libraries)
 
@@ -100,14 +103,14 @@ The following effects were implemented:
 2. Java main
     
     1. baseEffects - Contains interfaces for different types of effects (such as those with discrete/float parameter values as well as single/multiple parameters)
-    2. controller
+    2. controller - Reads parameters from the service request, calls the required Java functions from PhotoEffectService.java or LoggingService.java and the returns the output
     3. effectImplementation - Implementation of the interfaces defined in baseEffects for each image effect
     4. exception - Definition of the IllegalParameterException class (thrown )
     5. libraryInterfaces - Definitions to interact with C++ libraries
     6. model - Contains LogModel.java, which defines how the logs are to be saved
-    7. service - Contains PhotoEffectService.java (calls the C++ interface code and interacts with the frontend) and LoggingService.java (deals with logs)
+    7. service - Contains PhotoEffectService.java (calls the C++ interface code) and LoggingService.java (deals with logs)
     8. utils
-    9. `ImageEffectApplication.java`
+    9. `ImageEffectApplication.java` - main to run Spring Boot application
 
     ├── baseEffects<br>
     │   ├── DiscreteEffect.java<br>
