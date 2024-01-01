@@ -7,7 +7,7 @@ import com.iiitb.imageEffectApplication.service.LoggingService;
 
 public class GrayscaleEffect implements PhotoEffect{
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService){
-        loggingService.addLog(fileName, "Grayscale", "");
+        loggingService.addLog(fileName, "Grayscale", "");   //adding logging
         return GrayscaleInterface.applyGrayscale(image);
     }
 

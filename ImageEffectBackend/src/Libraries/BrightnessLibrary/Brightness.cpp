@@ -5,7 +5,7 @@ using namespace std;
 
 
 
-//Function to brighten the image
+//Function to adjust the brightness the image
 void brightnessImage(vector<vector<Pixel>>& image, float brightnessAmount) {
      brightnessAmount= (brightnessAmount-100)*2;
     int height = image.size();
