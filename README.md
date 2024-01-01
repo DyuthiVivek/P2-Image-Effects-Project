@@ -1,17 +1,17 @@
 # P2-Image-Effects-Project
 This project is used to implement different effects on images using c++, Java and java wrapper.
 The follwing effects can be implemented:
---> Hue - Saturation
---> Brightness
---> Contrast
---> Flip 
---> Gaussian Blur
---> Grayscale
---> Invert
---> Rotation 
---> Sepia
---> Sharpen
---> Dominant color
+- Hue - Saturation
+- Brightness
+- Contrast
+- Flip 
+- Gaussian Blur
+- Grayscale
+- Invert
+- Rotation 
+- Sepia
+- Sharpen
+- Dominant color
 
 ## Usage
  For frontend:
