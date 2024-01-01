@@ -97,10 +97,10 @@ public class PhotoController {
     }
 
     @PostMapping("/dominant-colour")
-    public ResponseEntity<byte[]> getDominantColour(
+    public ResponseEntity<byte[]> applyDominantColor(
             @RequestParam("imageFile") MultipartFile imageFile
     ) {
-        return photoEffectService.getDominantColour(imageFile);
+        return photoEffectService.applyDominantColor(imageFile);
     }
 
 }

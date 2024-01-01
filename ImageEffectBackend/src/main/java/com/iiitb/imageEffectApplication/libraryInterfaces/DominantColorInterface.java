@@ -5,5 +5,5 @@ public class DominantColorInterface {
         String libraryPath = "DominantColorLib";
         LoadNativeLibrary.loadNativeLibrary(libraryPath);
     }
-    public static native Pixel[][] applyDominantColorPixels(Pixel[][] image);
+    public static native Pixel[][] applyDominantColor(Pixel[][] image);
 }

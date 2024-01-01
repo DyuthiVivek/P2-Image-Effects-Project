@@ -4,8 +4,8 @@
 #include <vector>
 using namespace std;
 
-JNIEXPORT jobjectArray JNICALL Java_com_iiitb_imageEffectApplication_libraryInterfaces_FlipInterface_applyFlip
-  (JNIEnv * env, jclass jobj, jobjectArray image, jint value) {
+JNIEXPORT jobjectArray JNICALL Java_com_iiitb_imageEffectApplication_libraryInterfaces_DominantColorInterface_applyDominantColor
+  (JNIEnv * env, jclass jobj, jobjectArray image) {
 
     vector< vector<Pixel> > imageVector;
     jsize rows = env->GetArrayLength(image);
@@ -56,9 +56,9 @@ JNIEXPORT jobjectArray JNICALL Java_com_iiitb_imageEffectApplication_libraryInte
     // Call the function here
     // TODO
 
-    if (value) {
-        fillWithDominantColor(imageVector);
-    }
+    
+    fillWithDominantColor(imageVector);
+    
 
 
     int nrows = imageVector.size();

@@ -19,6 +19,13 @@ CONTRAST_JAVA_SRC = ./src/main/java/com/iiitb/imageEffectApplication/libraryInte
 CONTRAST_JNI_HEADER = ./src/Libraries/ContrastLibrary/com_iiitb_imageEffectApplication_libraryInterfaces_ContrastInterface.h
 CONTRAST_LIB_NAME = ./src/main/resources/ContrastLib
 
+
+DOMINANT_COLOR_LIBRARY_DESTINATION = ./src/Libraries/DominantColorLibrary
+DOMINANT_COLOR_CPP_SRC = ./src/Libraries/DominantColorLibrary/DominantColor.cpp ./src/Libraries/DominantColorLibrary/DominantColorInterface.cpp
+DOMINANT_COLOR_JAVA_SRC = ./src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/DominantColorInterface.java
+DOMINANT_COLOR_JNI_HEADER = ./src/Libraries/DominantColorLibrary/com_iiitb_imageEffectApplication_libraryInterfaces_DominantColorInterface.h
+DOMINANT_COLOR_LIB_NAME = ./src/main/resources/DominantColorLib
+
 FLIP_LIBRARY_DESTINATION = ./src/Libraries/FlipLibrary
 FLIP_CPP_SRC = ./src/Libraries/FlipLibrary/Flip.cpp ./src/Libraries/FlipLibrary/FlipInterface.cpp
 FLIP_JAVA_SRC = ./src/main/java/com/iiitb/imageEffectApplication/libraryInterfaces/FlipInterface.java
@@ -63,7 +70,7 @@ SHARPEN_LIB_NAME = ./src/main/resources/SharpenLib
 
 
 
-all: $(HUE_SATURATION_LIB_NAME) $(BRIGHTNESS_LIB_NAME) $(CONTRAST_LIB_NAME) $(FLIP_LIB_NAME) $(GAUSSIAN_BLUR_LIB_NAME) $(GRAYSCALE_LIB_NAME) $(INVERT_LIB_NAME) $(ROTATION_LIB_NAME) $(SEPIA_LIB_NAME) $(SHARPEN_LIB_NAME)
+all: $(HUE_SATURATION_LIB_NAME) $(BRIGHTNESS_LIB_NAME) $(CONTRAST_LIB_NAME) $(DOMINANT_COLOR_LIB_NAME) $(FLIP_LIB_NAME) $(GAUSSIAN_BLUR_LIB_NAME) $(GRAYSCALE_LIB_NAME) $(INVERT_LIB_NAME) $(ROTATION_LIB_NAME) $(SEPIA_LIB_NAME) $(SHARPEN_LIB_NAME)
 
 
 $(HUE_SATURATION_LIB_NAME): $(HUE_SATURATION_CPP_SRC) $(HUE_SATURATION_JNI_HEADER)
@@ -94,6 +101,13 @@ $(CONTRAST_JNI_HEADER): $(CONTRAST_JAVA_SRC)
 	javac -cp ./src/main/java -h $(CONTRAST_LIBRARY_DESTINATION) $(CONTRAST_JAVA_SRC)
 
 
+
+
+$(DOMINANT_COLOR_LIB_NAME): $(DOMINANT_COLOR_CPP_SRC) $(DOMINANT_COLOR_JNI_HEADER)
+	$(CC) -shared -o $@ $(DOMINANT_COLOR_CPP_SRC) -I$(JAVA_HOME)/include -I$(JAVA_HOME)/include/linux -fPIC
+
+$(DOMINANT_COLOR_JNI_HEADER): $(DOMINANT_COLOR_JAVA_SRC)
+	javac -cp ./src/main/java -h $(DOMINANT_COLOR_LIBRARY_DESTINATION) $(DOMINANT_COLOR_JAVA_SRC)
 
 
 
@@ -171,6 +185,7 @@ clean:
 	rm -f $(HUE_SATURATION_LIB_NAME) $(HUE_SATURATION_JNI_HEADER) \
 	$(BRIGHTNESS_LIB_NAME) $(BRIGHTNESS_JNI_HEADER) \
 	$(CONTRAST_LIB_NAME) $(CONTRAST_JNI_HEADER) \
+	$(DOMINANT_COLOR_LIB_NAME) $(DOMINANT_COLOR_JNI_HEADER) \
 	$(FLIP_LIB_NAME) $(FLIP_JNI_HEADER) \
 	$(GAUSSIAN_BLUR_LIB_NAME) $(GAUSSIAN_BLUR_JNI_HEADER) \
 	$(GRAYSCALE_LIB_NAME) $(GRAYSCALE_JNI_HEADER) \

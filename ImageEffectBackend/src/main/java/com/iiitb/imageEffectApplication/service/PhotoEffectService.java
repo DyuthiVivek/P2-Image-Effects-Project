@@ -307,7 +307,7 @@ public class PhotoEffectService {
         }
     }
 
-    public ResponseEntity<byte[]> getDominantColour(MultipartFile imageFile) {
+    public ResponseEntity<byte[]> applyDominantColor(MultipartFile imageFile) {
         try {
             Pixel[][] inputImage = processingUtils.preprocessing(imageFile);
             String imageName = imageFile.getOriginalFilename();
@@ -316,7 +316,6 @@ public class PhotoEffectService {
 
             // TODO
             DominantColorEffect effect = new DominantColorEffect();
-            effect.setParameterValue(1);
             Pixel[][] modifiedImage = effect.apply(inputImage, imageName, loggingService); // Replace this with actual modified image
 
             // ACTUAL WORK ENDS HERE
