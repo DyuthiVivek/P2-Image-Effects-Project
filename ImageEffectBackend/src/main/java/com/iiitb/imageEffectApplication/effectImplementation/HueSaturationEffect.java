@@ -19,12 +19,12 @@ public class HueSaturationEffect implements ParameterizableEffect{
 
     public void setParameter(String paramName1, float value1) throws IllegalParameterException{
         if(paramName1.equals("hueOffset")){
-            if(value1 != (float)value1)
+            if(value1 != (float)value1 || value < 0.0f || value > 100.0f)
                 throw new IllegalParameterException();
             HueOffset = value1;
         }
         else if (paramName1.equals("saturationOffset")){
-            if(value1 != (float)value1)
+            if(value1 != (float)value1 || value < 0.0f || value > 100.0f)
                 throw new IllegalParameterException();
             SaturationOffset = value1;
         }
