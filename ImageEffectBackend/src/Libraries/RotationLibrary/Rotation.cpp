@@ -26,12 +26,12 @@ void rotate90(vector<vector<Pixel>> &image) {
     image = rotatedImage;
 }
 
-void rotate180(vector<vector<Pixel>> &image) {
+void rotate180(vector<vector<Pixel>> &image) { //for 180 degree rotation we used the 90 degree rotation 2 times
     rotate90(image);
     rotate90(image);
 }
 
-void rotate270(vector<vector<Pixel>> &image) {
+void rotate270(vector<vector<Pixel>> &image) { //for 270 degree rotation we used 180 and 90 degree rotation
     rotate180(image);
     rotate90(image);
 }
