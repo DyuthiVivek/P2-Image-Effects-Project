@@ -10,7 +10,7 @@ public class RotationEffect implements DiscreteEffect {
     private int degrees = 0;
 
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService){
-        loggingService.addLog(fileName, "Rotation", "Degrees: " + Integer.toString(degrees));
+        loggingService.addLog(fileName, "Rotation", "Degrees: " + Integer.toString(degrees));   //adding the effect info to the log
         return RotationInterface.applyRotation(image, degrees);
     }
 
@@ -32,7 +32,7 @@ public class RotationEffect implements DiscreteEffect {
         }
 
         else {
-            throw new IllegalParameterException();
+            throw new IllegalParameterException();     //throwing exception if it is not any of the above value
         }
     }
 }
