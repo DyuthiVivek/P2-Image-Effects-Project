@@ -7,8 +7,8 @@ import com.iiitb.imageEffectApplication.service.LoggingService;
 
 public class InvertEffect implements PhotoEffect{
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService){
-        loggingService.addLog(fileName, "Invert", "");
-        return InvertInterface.applyInvert(image);
+        loggingService.addLog(fileName, "Invert", "");  //adding the effect info to the log
+        return InvertInterface.applyInvert(image);   
     }
 
 }
