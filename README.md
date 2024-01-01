@@ -1,7 +1,8 @@
 # P2-Image-Effects-Project
 
-This project is used to implement different effects on images using c++, Java and java wrapper.
-The follwing effects can be implemented:
+This project is used to implement different effects on images using C++, Java and java wrapper.
+
+The following effects were implemented:
 - Hue - Saturation
 - Brightness
 - Contrast
@@ -12,7 +13,7 @@ The follwing effects can be implemented:
 - Rotation 
 - Sepia
 - Sharpen
-- Dominant color
+- Dominant Color
 
 ## Usage
  For frontend:
@@ -98,15 +99,15 @@ The follwing effects can be implemented:
 
 2. Java main
     
-    1. baseEffects - 
-    2. controller -
-    3. effectImplementation - 
-    4. exception - 
-    5. libraryInterfaces - 
-    6. model - 
-    7. service - 
-    8. utils -
-    9. `ImageEffectApplication.java` -  
+    1. baseEffects - Contains interfaces for different types of effects (such as those with discrete/float parameter values as well as single/multiple parameters)
+    2. controller
+    3. effectImplementation - Implementation of the interfaces defined in baseEffects for each image effect
+    4. exception - Definition of the IllegalParameterException class (thrown )
+    5. libraryInterfaces - Definitions to interact with C++ libraries
+    6. model - Contains LogModel.java, which defines how the logs are to be saved
+    7. service - Contains PhotoEffectService.java (calls the C++ interface code and interacts with the frontend) and LoggingService.java (deals with logs)
+    8. utils
+    9. `ImageEffectApplication.java`
 
     ├── baseEffects<br>
     │   ├── DiscreteEffect.java<br>
