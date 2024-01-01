@@ -27,8 +27,12 @@ public class RotationEffect implements DiscreteEffect {
             degrees = 270;
         }
         
-        else {
+        else if (value == 4){
             degrees = 0;
+        }
+
+        else {
+            throw new IllegalParameterException();
         }
     }
 }

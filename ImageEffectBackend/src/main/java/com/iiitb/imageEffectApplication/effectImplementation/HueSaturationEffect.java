@@ -11,22 +11,21 @@ public class HueSaturationEffect implements ParameterizableEffect{
     private float SaturationOffset;
     
     public Pixel[][] apply(Pixel[][] image, String fileName, LoggingService loggingService){
-        loggingService.addLog(fileName, "HueSaturation", Float.toString(HueOffset));
+        loggingService.addLog(fileName, "HueSaturation", "Hue offset: " + Float.toString(HueOffset) + " Saturation offset: " + Float.toString(SaturationOffset));
         return HueSaturationInterface.applyHueSaturation(image, HueOffset, SaturationOffset);
     }
 
 
     public void setParameter(String paramName1, float value1) throws IllegalParameterException{
         if(paramName1.equals("hueOffset")){
-        if(value1 != (float)value1)
-            throw new IllegalParameterException();
-        HueOffset = value1;
+            if(value1 != (float)value1)
+                throw new IllegalParameterException();
+            HueOffset = value1;
         }
         else if (paramName1.equals("saturationOffset")){
-           if(value1 != (float)value1)
-            throw new IllegalParameterException();
+            if(value1 != (float)value1)
+                throw new IllegalParameterException();
             SaturationOffset = value1;
-
         }
     }
     

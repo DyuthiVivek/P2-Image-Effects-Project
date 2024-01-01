@@ -6,11 +6,9 @@ using namespace std;
 
 // Function to sharpen the image using a custom Laplacian filter
 void sharpenImage(std::vector<std::vector<Pixel>>& image, float sharpenAmount) {
-    // Ensure sharpenAmount is within the valid range (0 to 100)
-    sharpenAmount = std::min(std::max(sharpenAmount, 0.0f), 100.0f);
 
     // Scale sharpenAmount to a factor between 0 and 1 with reduced intensity
-    float scaleFactor = sharpenAmount / 200.0f;
+    float scaleFactor = sharpenAmount / 1000.0f;
 
     // Define the custom Laplacian filter kernel for sharpening
     std::vector<std::vector<float>> kernel = {

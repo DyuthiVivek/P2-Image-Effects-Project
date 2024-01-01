@@ -17,7 +17,7 @@ public class BrightnessEffect implements SingleValueParameterizableEffect{
     public void setParameterValue(float value) throws IllegalParameterException{
         if(value != (float)value)
             throw new IllegalParameterException();
-            brightnessAmount = value;
+        brightnessAmount = value;
       
     }
 

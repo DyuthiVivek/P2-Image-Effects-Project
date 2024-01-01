@@ -1,6 +1,7 @@
 package com.iiitb.imageEffectApplication.service;
 import java.io.*;
 import java.text.SimpleDateFormat;
+import java.time.DateTimeException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeFormatterBuilder;
@@ -87,19 +88,25 @@ public class LoggingService {
     }
 
     public List<LogModel> getLogsBetweenTimestamps(LocalDateTime startTime, LocalDateTime endTime) {
-        List <LogModel>listOfLogs = getAllLogs();
-        ArrayList <LogModel> newList = new ArrayList<>();
-        for(LogModel log: listOfLogs){
-            DateTimeFormatter formatter = new DateTimeFormatterBuilder()
-                .parseCaseInsensitive()
-                .appendPattern("yyyy-MM-dd hh:mm:ss a")
-                .toFormatter();
-            LocalDateTime dateTime = LocalDateTime.parse(log.getTimestamp(), formatter);
-            if (dateTime.isAfter(startTime) && dateTime.isBefore(endTime)) {
-                newList.add(log);
-            }
+        try{
+            List <LogModel>listOfLogs = getAllLogs();
+            ArrayList <LogModel> newList = new ArrayList<>();
+            for(LogModel log: listOfLogs){
+                DateTimeFormatter formatter = new DateTimeFormatterBuilder()
+                    .parseCaseInsensitive()
+                    .appendPattern("yyyy-MM-dd hh:mm:ss a")
+                    .toFormatter();
+                LocalDateTime dateTime = LocalDateTime.parse(log.getTimestamp(), formatter);
+                if (dateTime.isAfter(startTime) && dateTime.isBefore(endTime)) {
+                    newList.add(log);
+                }
 
+            }
+            return newList;
         }
-        return newList;
+        catch (DateTimeException e){
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 }
