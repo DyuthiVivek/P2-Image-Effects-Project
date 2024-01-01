@@ -178,9 +178,23 @@ Backend - Node.js talks to Java services implemented using the Spring Boot micro
 
 ## Effect source code
 
+3. Dominant Color
+
+    The dominant color function uses an unordered map to count the number of occurrences of each color. It then fills the image with the color that has the maximum number of occurrences.
+
+4. Flip
+
+    This was accomplished using two functions, `horizontalFlip` and `verticalFlip`. 
+    - Vertical flip reverses the order of rows in the 2D vector.
+    - Horizontal flip reverses the order of elements in each row.
+
 6. GrayScale
 
     For each pixel, the function calculates the grayscale intensity by taking the average of the red (r), green (g), and blue (b) color channels: grayscale = (r + g + b) / 3.
+
+9. Rotation
+
+    The rotation effect is implemented by creating a new matrix that places every pixel in the appropriate location to do a 90 degree rotation. 180 degree and 270 degree rotations are performed by repeatedly calling the 90 degree rotation.
 
 11. Sharpen
 
@@ -218,3 +232,7 @@ We are maintaining logs using file handling to read and write `LogModel` objects
 1. Dyuthi Vivek - IMT2022523
 
     GrayScale, Sharpen effects and Logging
+
+2. Swetha Murali - IMT2022018
+
+    Flip, Rotation, Dominant Color
