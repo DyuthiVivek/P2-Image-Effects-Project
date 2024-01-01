@@ -16,13 +16,17 @@ The follwing effects can be implemented:
 
 ## Usage
  For frontend:
-    Track to the folder "ImageEffectFrontend" and use the command "npm start".
+    Track to the folder `ImageEffectFrontend` and use the command `npm start`.
+
  For backend:
-    Track to the folder "ImageEffectBackend" and use the following commands.
+    Track to the folder `ImageEffectBackend` and use the following commands.
+    
     make clean
     make
     ./mvnw clean package
-    <jar command>
+    java -jar target/imageEffectApplication-0.0.1-SNAPSHOT.jar 
+
+
 
 
 ## Flow
@@ -34,63 +38,63 @@ The follwing effects can be implemented:
 
     The Java Native Interface (JNI) code (bridge between Java and C++) is in `effectInterface.cpp` files. It applies the effect to a 2D array of Pixel objects in Java. 
 
-    ├── BrightnessLibrary
-    │   ├── Brightness.cpp
-    │   ├── Brightness.h
-    │   ├── BrightnessInterface.cpp
-    │   └── com_iiitb_imageEffectApplication_libraryInterfaces_BrightnessInterface.h
-    ├── ContrastLibrary
-    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_ContrastInterface.h
-    │   ├── Contrast.cpp
-    │   ├── Contrast.h
-    │   └── ContrastInterface.cpp
-    ├── DominantColorLibrary
-    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_DominantColorInterface.h
-    │   ├── DominantColor.cpp
-    │   ├── DominantColor.h
-    │   └── DominantColorInterface.cpp
-    ├── FlipLibrary
-    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_FlipInterface.h
-    │   ├── Flip.cpp
-    │   ├── Flip.h
-    │   └── FlipInterface.cpp
-    ├── GaussianBlurLibrary
-    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_GaussianBlurInterface.h
-    │   ├── GaussianBlur.cpp
-    │   ├── GaussianBlur.h
-    │   └── GaussianBlurInterface.cpp
-    ├── GrayscaleLibrary
-    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_GrayscaleInterface.h
-    │   ├── Grayscale.cpp
-    │   ├── Grayscale.h
-    │   └── GrayscaleInterface.cpp
-    ├── HueSaturationLibrary
-    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_HueSaturationInterface.h
-    │   ├── HueSaturation.cpp
-    │   ├── HueSaturation.h
-    │   └── HueSaturationInterface.cpp
-    ├── InvertLibrary
-    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_InvertInterface.h
-    │   ├── Invert.cpp
-    │   ├── Invert.h
-    │   └── InvertInterface.cpp
-    ├── MakefileReference.txt
-    ├── Pixel.h
-    ├── RotationLibrary
-    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_RotationInterface.h
-    │   ├── Rotation.cpp
-    │   ├── Rotation.h
-    │   └── RotationInterface.cpp
-    ├── SepiaLibrary
-    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_SepiaInterface.h
-    │   ├── Sepia.cpp
-    │   ├── Sepia.h
-    │   └── SepiaInterface.cpp
-    └── SharpenLibrary
-        ├── com_iiitb_imageEffectApplication_libraryInterfaces_SharpenInterface.h
-        ├── Sharpen.cpp
-        ├── Sharpen.h
-        └── SharpenInterface.cpp
+    ├── BrightnessLibrary<br>
+    │   ├── Brightness.cpp<br>
+    │   ├── Brightness.h<br>
+    │   ├── BrightnessInterface.cpp<br>
+    │   └── com_iiitb_imageEffectApplication_libraryInterfaces_BrightnessInterface.h<br>
+    ├── ContrastLibrary<br>
+    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_ContrastInterface.h<br>
+    │   ├── Contrast.cpp<br>
+    │   ├── Contrast.h<br>
+    │   └── ContrastInterface.cpp<br>
+    ├── DominantColorLibrary<br>
+    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_DominantColorInterface.h<br>
+    │   ├── DominantColor.cpp<br>
+    │   ├── DominantColor.h<br>
+    │   └── DominantColorInterface.cpp<br>
+    ├── FlipLibrary<br>
+    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_FlipInterface.h<br>
+    │   ├── Flip.cpp<br>
+    │   ├── Flip.h<br>
+    │   └── FlipInterface.cpp<br>
+    ├── GaussianBlurLibrary<br>
+    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_GaussianBlurInterface.h<br>
+    │   ├── GaussianBlur.cpp<br>
+    │   ├── GaussianBlur.h<br>
+    │   └── GaussianBlurInterface.cpp<br>
+    ├── GrayscaleLibrary<br>
+    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_GrayscaleInterface.h<br>
+    │   ├── Grayscale.cpp<br>
+    │   ├── Grayscale.h<br>
+    │   └── GrayscaleInterface.cpp<br>
+    ├── HueSaturationLibrary<br>
+    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_HueSaturationInterface.h<br>
+    │   ├── HueSaturation.cpp<br>
+    │   ├── HueSaturation.h<br>
+    │   └── HueSaturationInterface.cpp<br>
+    ├── InvertLibrary<br>
+    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_InvertInterface.h<br>
+    │   ├── Invert.cpp<br>
+    │   ├── Invert.h<br>
+    │   └── InvertInterface.cpp<br>
+    ├── MakefileReference.txt<br>
+    ├── Pixel.h<br>
+    ├── RotationLibrary<br>
+    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_RotationInterface.h<br>
+    │   ├── Rotation.cpp<br>
+    │   ├── Rotation.h<br>
+    │   └── RotationInterface.cpp<br>
+    ├── SepiaLibrary<br>
+    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_SepiaInterface.h<br>
+    │   ├── Sepia.cpp<br>
+    │   ├── Sepia.h<br>
+    │   └── SepiaInterface.cpp<br>
+    └── SharpenLibrary<br>
+        ├── com_iiitb_imageEffectApplication_libraryInterfaces_SharpenInterface.h<br>
+        ├── Sharpen.cpp<br>
+        ├── Sharpen.h<br>
+        └── SharpenInterface.cpp<br>
 
 2. Java main
     
@@ -104,69 +108,68 @@ The follwing effects can be implemented:
     8. utils -
     9. `ImageEffectApplication.java` -  
 
+    ├── baseEffects<br>
+    │   ├── DiscreteEffect.java<br>
+    │   ├── ParameterizableEffect.java<br>
+    │   ├── PhotoEffect.java<br>
+    │   ├── SingleValueDiscreteEffect.java<br>
+    │   └── SingleValueParameterizableEffect.java<br>
+    ├── config<br>
+    │   └── WebConfig.java<br>
+    ├── controller<br>
+    │   ├── LogController.java<br>
+    │   └── PhotoController.java<br>
+    ├── effectImplementation<br>
+    │   ├── BrightnessEffect.java<br>
+    │   ├── ContrastEffect.java<br>
+    │   ├── DominantColorEffect.java<br>
+    │   ├── FlipEffect.java<br>
+    │   ├── GaussianBlurEffect.java<br>
+    │   ├── GrayscaleEffect.java<br>
+    │   ├── HueSaturationEffect.java<br>
+    │   ├── InvertEffect.java<br>
+    │   ├── RotationEffect.java<br>
+    │   ├── SepiaEffect.java<br>
+    │   └── SharpenEffect.java<br>
+    ├── exception<br>
+    │   └── IllegalParameterException.java<br>
+    ├── ImageEffectApplication.java<br>
+    ├── libraryInterfaces<br>
+    │   ├── BrightnessInterface.class<br>
+    │   ├── BrightnessInterface.java<br>
+    │   ├── ContrastInterface.class<br>
+    │   ├── ContrastInterface.java<br>
+    │   ├── DominantColorInterface.class<br>
+    │   ├── DominantColorInterface.java<br>
+    │   ├── FlipInterface.class<br>
+    │   ├── FlipInterface.java<br>
+    │   ├── GaussianBlurInterface.class<br>
+    │   ├── GaussianBlurInterface.java<br>
+    │   ├── GrayscaleInterface.class<br>
+    │   ├── GrayscaleInterface.java<br>
+    │   ├── HueSaturationInterface.class<br>
+    │   ├── HueSaturationInterface.java<br>
+    │   ├── InvertInterface.class<br>
+    │   ├── InvertInterface.java<br>
+    │   ├── LoadNativeLibrary.class<br>
+    │   ├── LoadNativeLibrary.java<br>
+    │   ├── Pixel.class<br>
+    │   ├── Pixel.java<br>
+    │   ├── RotationInterface.class<br>
+    │   ├── RotationInterface.java<br>
+    │   ├── SepiaInterface.class<br>
+    │   ├── SepiaInterface.java<br>
+    │   ├── SharpenInterface.class<br>
+    │   └── SharpenInterface.java<br>
+    ├── model<br>
+    │   └── LogModel.java<br>
+    ├── service<br>
+    │   ├── LoggingService.java<br>
+    │   ├── logs<br>
+    │   └── PhotoEffectService.java<br>
+    └── utils<br>
+        └── ProcessingUtils.java<br>
 
-
-    ├── baseEffects
-    │   ├── DiscreteEffect.java
-    │   ├── ParameterizableEffect.java
-    │   ├── PhotoEffect.java
-    │   ├── SingleValueDiscreteEffect.java
-    │   └── SingleValueParameterizableEffect.java
-    ├── config
-    │   └── WebConfig.java
-    ├── controller
-    │   ├── LogController.java
-    │   └── PhotoController.java
-    ├── effectImplementation
-    │   ├── BrightnessEffect.java
-    │   ├── ContrastEffect.java
-    │   ├── DominantColorEffect.java
-    │   ├── FlipEffect.java
-    │   ├── GaussianBlurEffect.java
-    │   ├── GrayscaleEffect.java
-    │   ├── HueSaturationEffect.java
-    │   ├── InvertEffect.java
-    │   ├── RotationEffect.java
-    │   ├── SepiaEffect.java
-    │   └── SharpenEffect.java
-    ├── exception
-    │   └── IllegalParameterException.java
-    ├── ImageEffectApplication.java
-    ├── libraryInterfaces
-    │   ├── BrightnessInterface.class
-    │   ├── BrightnessInterface.java
-    │   ├── ContrastInterface.class
-    │   ├── ContrastInterface.java
-    │   ├── DominantColorInterface.class
-    │   ├── DominantColorInterface.java
-    │   ├── FlipInterface.class
-    │   ├── FlipInterface.java
-    │   ├── GaussianBlurInterface.class
-    │   ├── GaussianBlurInterface.java
-    │   ├── GrayscaleInterface.class
-    │   ├── GrayscaleInterface.java
-    │   ├── HueSaturationInterface.class
-    │   ├── HueSaturationInterface.java
-    │   ├── InvertInterface.class
-    │   ├── InvertInterface.java
-    │   ├── LoadNativeLibrary.class
-    │   ├── LoadNativeLibrary.java
-    │   ├── Pixel.class
-    │   ├── Pixel.java
-    │   ├── RotationInterface.class
-    │   ├── RotationInterface.java
-    │   ├── SepiaInterface.class
-    │   ├── SepiaInterface.java
-    │   ├── SharpenInterface.class
-    │   └── SharpenInterface.java
-    ├── model
-    │   └── LogModel.java
-    ├── service
-    │   ├── LoggingService.java
-    │   ├── logs
-    │   └── PhotoEffectService.java
-    └── utils
-        └── ProcessingUtils.java
 
 
 ## Effect source code
@@ -209,4 +212,5 @@ The code uses file handling to read and write `LogModel` objects to a binary fil
 ## Contributions
 
 1. Dyuthi Vivek - IMT2022523
+
     GrayScale, Sharpen effects and Logging
