@@ -28,6 +28,9 @@ public class HueSaturationEffect implements ParameterizableEffect{
                 throw new IllegalParameterException();
             SaturationOffset = value1;
         }
+        else{
+            throw new IllegalParameterException();
+        }
     }
     
 }
