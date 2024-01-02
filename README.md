@@ -182,7 +182,6 @@ Backend - Node.js talks to Java services implemented using the Spring Boot micro
    For each pixel, the r, g, b values are converted into h (Hue), s (Saturation), v (Value) system and the hue and saturation are updated according to the hue and saturation offset values as follows
 
    h += HueOffset
-   
    s *= SaturationOffset
 
    and the h, s, v values are again converted back into the r, g, b system and applied to the image.
