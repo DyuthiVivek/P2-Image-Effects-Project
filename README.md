@@ -109,7 +109,7 @@ Backend - Node.js talks to Java services implemented using the Spring Boot micro
     4. exception - Definition of the IllegalParameterException class
     5. libraryInterfaces - Interface to the native C++ method to apply the effects
     6. model - Contains definition of the LogModel class, which defines how the logs are to be saved
-    7. service - Contains PhotoEffectService.java (calls the C++ interface code) and LoggingService.java (deals with logs)
+    7. service - Contains PhotoEffectService.java (calls the apply function of each effect) and LoggingService.java (deals with logs)
     8. utils - Contains functions to process the image
     9. `ImageEffectApplication.java` - main to run Spring Boot application
 
