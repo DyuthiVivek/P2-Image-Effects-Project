@@ -186,11 +186,17 @@ Backend - Node.js talks to Java services implemented using the Spring Boot micro
 
    and the h, s, v values are again converted back into the r, g, b system and applied to the image.
 
-3. Dominant Color
+2. Brightness
+
+   For each pixel in the image vector,the r,g,b values are incremented/decremented by the brightness amount taken as input 
+   image[i][j].r = min(max(image[i][j].r + (int)brightnessAmount, 0), 255);
+   -> Same is applied for g and b channels.
+   
+4. Dominant Color
 
     The dominant color function uses an unordered map to count the number of occurrences of each color. It then fills the image with the color that has the maximum number of occurrences.
 
-4. Flip
+5. Flip
 
     This was accomplished using two functions, `horizontalFlip` and `verticalFlip`. 
     - Vertical flip reverses the order of rows in the 2D vector.
@@ -202,8 +208,16 @@ Backend - Node.js talks to Java services implemented using the Spring Boot micro
 7. Invert
 
    For each pixel in the input image, the function calculates the invert value of each channel (red, green and blue) i.e., 255 - (actual channel value).
+
+8. Sepia
+
+   For each pixel in the image, r,g,b values are updated  to :
+    sepiaR = 0.393 * r + 0.769 * g + 0.189 * b;
+    sepiaG = 0.349 * r + 0.686 * g + 0.168 * b;
+    sepiaB = 0.272 * r + 0.534 * g + 0.131 * b;
+   Then the values are clamped to [0,255]
    
-9. Rotation
+10. Rotation
 
     The rotation effect is implemented by creating a new matrix that places every pixel in the appropriate location to do a 90 degree rotation. 180 degree and 270 degree rotations are performed by repeatedly calling the 90 degree rotation.
 
@@ -250,4 +264,9 @@ We are maintaining logs using file handling to read and write `LogModel` objects
 
 3. Akshaya Bysani - IMT2022579
 
-    Hue Saturation and Invert 
+    Hue Saturation and Invert
+
+4. Niveditha Varma - IMT2021033
+
+    Brightness and Sepia
+   
