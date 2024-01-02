@@ -177,6 +177,15 @@ Backend - Node.js talks to Java services implemented using the Spring Boot micro
 
 
 ## Effect source code
+1. Hue Saturation
+
+   For each pixel, the r, g, b values are converted into h (Hue), s (Saturation), v (Value) system and the hue and saturation are updated according to the hue and saturation offset values as follows
+
+   h += HueOffset
+   
+   s *= SaturationOffset
+
+   and the h, s, v values are again converted back into the r, g, b system and applied to the image.
 
 3. Dominant Color
 
@@ -191,7 +200,10 @@ Backend - Node.js talks to Java services implemented using the Spring Boot micro
 6. GrayScale
 
     For each pixel, the function calculates the grayscale intensity by taking the average of the red (r), green (g), and blue (b) color channels: grayscale = (r + g + b) / 3.
+7. Invert
 
+   For each pixel in the input image, the function calculates the invert value of each channel (red, green and blue) i.e., 255 - (actual channel value).
+   
 9. Rotation
 
     The rotation effect is implemented by creating a new matrix that places every pixel in the appropriate location to do a 90 degree rotation. 180 degree and 270 degree rotations are performed by repeatedly calling the 90 degree rotation.
@@ -236,3 +248,7 @@ We are maintaining logs using file handling to read and write `LogModel` objects
 2. Swetha Murali - IMT2022018
 
     Flip, Rotation, Dominant Color
+
+3. Akshaya Bysani - IMT2022579
+
+    Hue Saturation and Invert 
