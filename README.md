@@ -64,9 +64,9 @@ Backend - Node.js talks to Java services implemented using the Spring Boot micro
     │   ├── Flip.cpp<br>
     │   ├── Flip.h<br>
     │   └── FlipInterface.cpp<br>
-    .
-    .
-    .
+    .<br>
+    .<br>
+    .<br>
     
 2. Java main
     
@@ -115,9 +115,9 @@ Backend - Node.js talks to Java services implemented using the Spring Boot micro
     │   ├── DominantColorInterface.java<br>
     │   ├── FlipInterface.class<br>
     │   ├── FlipInterface.java<br>
-    │   .
-    │   .
-    │   .
+    │   .<br>
+    │   .<br>
+    │   .<br>
     ├── model<br>
     │   └── LogModel.java<br>
     ├── service<br>
