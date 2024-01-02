@@ -17,7 +17,8 @@ The following effects were implemented:
 
 ## Usage
  For frontend:
-    Track to the folder `ImageEffectFrontend` and use the command `npm start`.
+    Track to the project directory and run `npm i`.
+    Track to the folder `ImageEffectFrontend`, run `npm i` and then use the command `npm start`.
 
  For backend:
     Track to the folder `ImageEffectBackend` and use the following commands.
@@ -36,7 +37,7 @@ Frontend - User interacts with the frontend layer through a browser, which runs 
 
 Backend - Node.js talks to Java services implemented using the Spring Boot microservice framework. The source code for image effects is written in C++. The Java services layer talks to the C++ libraries using JNI. 
 
-## Directory Structure of Backend
+## Backend Directory Structure
 1. Libraries (cpp libraries)
 
     Source code files for all effects are in `effect.cpp` files. 
@@ -63,44 +64,10 @@ Backend - Node.js talks to Java services implemented using the Spring Boot micro
     │   ├── Flip.cpp<br>
     │   ├── Flip.h<br>
     │   └── FlipInterface.cpp<br>
-    ├── GaussianBlurLibrary<br>
-    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_GaussianBlurInterface.h<br>
-    │   ├── GaussianBlur.cpp<br>
-    │   ├── GaussianBlur.h<br>
-    │   └── GaussianBlurInterface.cpp<br>
-    ├── GrayscaleLibrary<br>
-    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_GrayscaleInterface.h<br>
-    │   ├── Grayscale.cpp<br>
-    │   ├── Grayscale.h<br>
-    │   └── GrayscaleInterface.cpp<br>
-    ├── HueSaturationLibrary<br>
-    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_HueSaturationInterface.h<br>
-    │   ├── HueSaturation.cpp<br>
-    │   ├── HueSaturation.h<br>
-    │   └── HueSaturationInterface.cpp<br>
-    ├── InvertLibrary<br>
-    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_InvertInterface.h<br>
-    │   ├── Invert.cpp<br>
-    │   ├── Invert.h<br>
-    │   └── InvertInterface.cpp<br>
-    ├── MakefileReference.txt<br>
-    ├── Pixel.h<br>
-    ├── RotationLibrary<br>
-    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_RotationInterface.h<br>
-    │   ├── Rotation.cpp<br>
-    │   ├── Rotation.h<br>
-    │   └── RotationInterface.cpp<br>
-    ├── SepiaLibrary<br>
-    │   ├── com_iiitb_imageEffectApplication_libraryInterfaces_SepiaInterface.h<br>
-    │   ├── Sepia.cpp<br>
-    │   ├── Sepia.h<br>
-    │   └── SepiaInterface.cpp<br>
-    └── SharpenLibrary<br>
-        ├── com_iiitb_imageEffectApplication_libraryInterfaces_SharpenInterface.h<br>
-        ├── Sharpen.cpp<br>
-        ├── Sharpen.h<br>
-        └── SharpenInterface.cpp<br>
-
+    .
+    .
+    .
+    
 2. Java main
     
     1. baseEffects - Contains interfaces for different types of effects (such as those with discrete/float parameter values as well as single/multiple parameters)
@@ -148,24 +115,9 @@ Backend - Node.js talks to Java services implemented using the Spring Boot micro
     │   ├── DominantColorInterface.java<br>
     │   ├── FlipInterface.class<br>
     │   ├── FlipInterface.java<br>
-    │   ├── GaussianBlurInterface.class<br>
-    │   ├── GaussianBlurInterface.java<br>
-    │   ├── GrayscaleInterface.class<br>
-    │   ├── GrayscaleInterface.java<br>
-    │   ├── HueSaturationInterface.class<br>
-    │   ├── HueSaturationInterface.java<br>
-    │   ├── InvertInterface.class<br>
-    │   ├── InvertInterface.java<br>
-    │   ├── LoadNativeLibrary.class<br>
-    │   ├── LoadNativeLibrary.java<br>
-    │   ├── Pixel.class<br>
-    │   ├── Pixel.java<br>
-    │   ├── RotationInterface.class<br>
-    │   ├── RotationInterface.java<br>
-    │   ├── SepiaInterface.class<br>
-    │   ├── SepiaInterface.java<br>
-    │   ├── SharpenInterface.class<br>
-    │   └── SharpenInterface.java<br>
+    │   .
+    │   .
+    │   .
     ├── model<br>
     │   └── LogModel.java<br>
     ├── service<br>

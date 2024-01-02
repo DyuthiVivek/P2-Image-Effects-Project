@@ -25,6 +25,8 @@ public class LoggingService {
 
         // get all logs, writing again to logs file
         List <LogModel> listOfLogs = getAllLogs();
+
+        // add absolute file path here
         File file = new File("/home/dyuthi/prog2/P2-Image-Effects-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/service/logs");
         
         try (FileOutputStream fos = new FileOutputStream(file)) {
@@ -48,6 +50,8 @@ public class LoggingService {
 
         // reading all LogModel objects from the logs binary file
         ArrayList <LogModel> listOfLogs = new ArrayList<>();
+
+        // add absolute file path here
         File file = new File("/home/dyuthi/prog2/P2-Image-Effects-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/service/logs");
 
         try {
@@ -101,6 +105,8 @@ public class LoggingService {
     public void clearLogs() {
 
         // clearing contents of the file
+
+        // add absolute file path here
         File file = new File("/home/dyuthi/prog2/P2-Image-Effects-Project/ImageEffectBackend/src/main/java/com/iiitb/imageEffectApplication/service/logs");
         try{
             PrintWriter writer = new PrintWriter(file);
