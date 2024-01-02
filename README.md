@@ -242,7 +242,7 @@ We are maintaining logs using file handling to read and write `LogModel` objects
 
 1. Dyuthi Vivek - IMT2022523
 
-    GrayScale, Sharpen effects and Logging
+    GrayScale, Sharpen, Logging
 
 2. Swetha Murali - IMT2022018
 
