@@ -33,6 +33,7 @@ The following effects were implemented:
 ## Flow
 
 Frontend - User interacts with the frontend layer through a browser, which runs JavaScript code written using Angular framework.
+
 Backend - Node.js talks to Java services implemented using the Spring Boot microservice framework. The source code for image effects is written in C++. The Java services layer talks to the C++ libraries using JNI. 
 
 ## Directory Structure of Backend
@@ -103,13 +104,13 @@ Backend - Node.js talks to Java services implemented using the Spring Boot micro
 2. Java main
     
     1. baseEffects - Contains interfaces for different types of effects (such as those with discrete/float parameter values as well as single/multiple parameters)
-    2. controller - Reads parameters from the service request, calls the required Java functions from PhotoEffectService.java or LoggingService.java and the returns the output
+    2. controller - Reads parameters from the service request, calls the required Java functions from PhotoEffectService.java or LoggingService.java and returns the output
     3. effectImplementation - Implementation of the interfaces defined in baseEffects for each image effect
-    4. exception - Definition of the IllegalParameterException class (thrown )
-    5. libraryInterfaces - Definitions to interact with C++ libraries
-    6. model - Contains LogModel.java, which defines how the logs are to be saved
+    4. exception - Definition of the IllegalParameterException class
+    5. libraryInterfaces - Interface to the native C++ method to apply the effects
+    6. model - Contains definition of the LogModel class, which defines how the logs are to be saved
     7. service - Contains PhotoEffectService.java (calls the C++ interface code) and LoggingService.java (deals with logs)
-    8. utils
+    8. utils - Contains functions to process the image
     9. `ImageEffectApplication.java` - main to run Spring Boot application
 
     ├── baseEffects<br>
@@ -193,25 +194,41 @@ Backend - Node.js talks to Java services implemented using the Spring Boot micro
    image[i][j].r = min(max(image[i][j].r + (int)brightnessAmount, 0), 255);
 
    -> Same is applied for g and b channels.
+
+3. Contrast
+
+   The function applies the contrast formula for each pixel  iterating through the image vector
+
+   pixel.r = static_cast<int>((amount * (pixel.r - 128)) + 128);
+
+   The amount  is the contrast amount taken as input and the formula is applied for g and b values as well to give the output image.
+   It ensures that the adjusted pixel values stay within the valid range of 0 to 255 by using the min and max functions. 
+
+5. GaussianBlur 
+
+    The function performs a convolution operation on the input image using the generated Gaussian kernel.
+    The Gaussian kernel is based on the specified radius and sigma value. 
+    It calculates new pixel values for each channel (r, g, b) by considering neighboring pixels' contributions, weighted by the values in the Gaussian kernel.
+    The resulting blurred image is stored in a separate 2D pixel vector which is copied to the image back.
    
-4. Dominant Color
+7. Dominant Color
 
     The dominant color function uses an unordered map to count the number of occurrences of each color. It then fills the image with the color that has the maximum number of occurrences.
 
-5. Flip
+8. Flip
 
     This was accomplished using two functions, `horizontalFlip` and `verticalFlip`. 
     - Vertical flip reverses the order of rows in the 2D vector.
     - Horizontal flip reverses the order of elements in each row.
 
-6. GrayScale
+9. GrayScale
 
     For each pixel, the function calculates the grayscale intensity by taking the average of the red (r), green (g), and blue (b) color channels: grayscale = (r + g + b) / 3.
-7. Invert
+10. Invert
 
    For each pixel in the input image, the function calculates the invert value of each channel (red, green and blue) i.e., 255 - (actual channel value).
 
-8. Sepia
+11. Sepia
 
    For each pixel in the image, r,g,b values are updated  to :
     
@@ -273,4 +290,8 @@ We are maintaining logs using file handling to read and write `LogModel` objects
 4. Niveditha Varma - IMT2021033
 
     Brightness and Sepia
+   
+5. PVS Sukeerthi - IMT2022572
+
+   Contrast and GaussianBlur
    
