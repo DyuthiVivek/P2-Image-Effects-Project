@@ -188,8 +188,10 @@ Backend - Node.js talks to Java services implemented using the Spring Boot micro
 
 2. Brightness
 
-   For each pixel in the image vector,the r,g,b values are incremented/decremented by the brightness amount taken as input 
+   For each pixel in the image vector,the r,g,b values are incremented/decremented by the brightness amount taken as input
+   
    image[i][j].r = min(max(image[i][j].r + (int)brightnessAmount, 0), 255);
+
    -> Same is applied for g and b channels.
    
 4. Dominant Color
@@ -212,9 +214,11 @@ Backend - Node.js talks to Java services implemented using the Spring Boot micro
 8. Sepia
 
    For each pixel in the image, r,g,b values are updated  to :
-    sepiaR = 0.393 * r + 0.769 * g + 0.189 * b;
-    sepiaG = 0.349 * r + 0.686 * g + 0.168 * b;
-    sepiaB = 0.272 * r + 0.534 * g + 0.131 * b;
+    
+    - sepiaR = 0.393 * r + 0.769 * g + 0.189 * b;
+    - sepiaG = 0.349 * r + 0.686 * g + 0.168 * b;
+    - sepiaB = 0.272 * r + 0.534 * g + 0.131 * b;
+   
    Then the values are clamped to [0,255]
    
 10. Rotation
